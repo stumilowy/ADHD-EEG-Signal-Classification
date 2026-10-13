@@ -3,7 +3,10 @@ from sklearn.model_selection import GroupShuffleSplit
 
 def load_and_split_data(file_path, test_size=0.2, random_state=42):
     df = pd.read_csv(file_path)
+    return split_data(df, test_size=test_size, random_state=random_state)
 
+
+def split_data(df, test_size=0.2, random_state=42):
     channels = [
         'Fp1', 'Fp2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2',
         'F7', 'F8', 'T7', 'T8', 'P7', 'P8', 'Fz', 'Cz', 'Pz'

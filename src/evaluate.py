@@ -1,5 +1,6 @@
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def evaluate_model(pipeline, X_test, y_test):
