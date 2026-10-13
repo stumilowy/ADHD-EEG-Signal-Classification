@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def evaluate_model(pipeline, X_test, y_test):
+def evaluate_model(pipeline, X_test, y_test, model_name= None):
     y_pred = pipeline.predict(X_test)
 
     print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}\n")
     print("Classification Report:")
     print(classification_report(y_test, y_pred, target_names=['Control', 'ADHD']))
 
-    # Rysowanie macierzy pomyłek
+    # drawing plot
     cm = confusion_matrix(y_test, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Control', 'ADHD'])
     disp.plot(cmap=plt.cm.Blues)
-    plt.title("Macierz Pomyłek (Confusion Matrix)")
+    plt.title(f"Confusion Matrix - {model_name}")
     plt.show()
